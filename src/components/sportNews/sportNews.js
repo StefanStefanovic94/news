@@ -1,12 +1,8 @@
-// import axios from "axios";
-// import React from "react"
+import React, { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
 import SingleArticle from "../singleArticle/SingleArticle";
-import "./articles.scss"
-import React, { useEffect, useState } from 'react';
-import ReactPaginate from 'react-paginate';
 
-function Articles() {
-
+const SportNews = () => {
     const [hits, setHits] = useState([]);
     const [pageCount, setPageCount] = useState(1);
     const [isLoaded, setisLoaded] = useState(false);
@@ -14,7 +10,7 @@ function Articles() {
     const [query, setQuery] = useState("");
     const [offsetPage, setOffsetPage] = useState(0);
 
-    const URL = `http://api.mediastack.com/v1/news?access_key=98dc895c193ccd95ea40c83349780be8&languages=en&sort=published_desc&offset=${currentPage}&keywords=${query}`;
+    const URL = `http://api.mediastack.com/v1/news?access_key=98dc895c193ccd95ea40c83349780be8&languages=en&sort=published_desc&offset=${currentPage}&keywords=${query}&categories=sports`;
 
 
 
@@ -89,4 +85,4 @@ function Articles() {
     );
 }
 
-export default Articles;
+export default SportNews
