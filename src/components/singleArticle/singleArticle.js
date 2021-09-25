@@ -9,7 +9,9 @@ const SingleArticle = ({ author, title, image, descritpion, published, url, crea
     const month = date.toLocaleString('default', { month: 'long' });
     const minutes = date.getMinutes()
     const hours = date.getHours()
-    
+
+    // const min = minutes < 10 ? 0 + minutes : minutes
+
 
     return (
 

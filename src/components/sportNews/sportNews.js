@@ -4,13 +4,13 @@ import SingleArticle from "../singleArticle/SingleArticle";
 
 const SportNews = () => {
     const [hits, setHits] = useState([]);
-    const [pageCount, setPageCount] = useState(1);
+    const [pageCount, setPageCount] = useState(0);
     const [isLoaded, setisLoaded] = useState(false);
     const [currentPage, setcurrentPage] = useState(0);
     const [query, setQuery] = useState("");
     const [offsetPage, setOffsetPage] = useState(0);
 
-    const URL = `http://api.mediastack.com/v1/news?access_key=a8ef5a60d7c6e5e9390d3f0a1bce22df&languages=en&sort=published_desc&offset=${currentPage}&keywords=${query}&categories=sports`;
+    const URL = `http://api.mediastack.com/v1/news?access_key=a8ef5a60d7c6e5e9390d3f0a1bce22df&languages=en&sort=published_desc&keywords=${query}&categories=sports&offset=${offsetPage}`;
 
 
 
@@ -37,12 +37,35 @@ const SportNews = () => {
         handleFetch()
     }, [isLoaded]);
 
+    const next = () => {
+        var count = offsetPage
+        count += 25
+        setOffsetPage(count)
+        setisLoaded(false)
+        handleFetch();
+    }
+    const previous = () => {
+        var count = offsetPage
+        count -= 25
+        if (count >= 0) {
+            setOffsetPage(count)
+            setisLoaded(false)
+            handleFetch()
+        } else {
+            count = 0
+        }
+    }
+
+
 
     return (<div>
         <div>
-            <label>Search</label>
-            <input type="text" onChange={(event) => setQuery(event.target.value)} />
-            <button onClick={handleFetch}>Get Data</button>
+            <input className="searchBar" placeholder="search for news..." type="text" onChange={(event) => setQuery(event.target.value)} />
+            <button className="searchButton" onClick={handleFetch}>Search</button>
+        </div>
+        <div className="pagination">
+            <button onClick={previous}>Previous</button>
+            <button onClick={next}>Next</button>
         </div>
         <div className="allArticles">
             {isLoaded ? (
@@ -63,23 +86,6 @@ const SportNews = () => {
                 <div></div>
             )}
         </div>
-        {isLoaded ? (
-            <ReactPaginate
-                pageCount={pageCount}
-                pageRange={2}
-                marginPagesDisplayed={2}
-                onPageChange={handlePageChange}
-                containerClassName={'container'}
-                previousLinkClassName={'page'}
-                breakClassName={'page'}
-                nextLinkClassName={'page'}
-                pageClassName={'page'}
-                disabledClassNae={'disabled'}
-                activeClassName={'active'}
-            />
-        ) : (
-            <div>Nothing to display</div>
-        )}
 
     </div>
     );

@@ -23,3 +23,14 @@
   background:white;
   cursor: pointer;
 }
+.pagination{
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  button{
+    min-width: 70px;
+    background: #385170;
+    color: white;
+    padding: 5px;
+  }
+}
