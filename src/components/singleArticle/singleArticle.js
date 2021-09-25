@@ -1,6 +1,7 @@
 import React from "react"
 import "./singleArticle.scss"
 import PropTypes from 'prop-types';
+import { Col, Container, Row } from "react-bootstrap";
 
 const SingleArticle = ({ author, title, image, descritpion, published, url, created }) => {
 

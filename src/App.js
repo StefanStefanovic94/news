@@ -4,6 +4,8 @@ import Articles from './components/articles/Articles';
 import Header from './components/header/Header';
 import SportNews from './components/sportNews/sportNews';
 import TechnologyNews from './components/technologyNews/TechnologyNews';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
 

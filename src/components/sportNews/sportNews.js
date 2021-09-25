@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Col } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
 import SingleArticle from "../singleArticle/SingleArticle";
 
@@ -10,7 +11,7 @@ const SportNews = () => {
     const [query, setQuery] = useState("");
     const [offsetPage, setOffsetPage] = useState(0);
 
-    const URL = `http://api.mediastack.com/v1/news?access_key=a8ef5a60d7c6e5e9390d3f0a1bce22df&languages=en&sort=published_desc&keywords=${query}&categories=sports&offset=${offsetPage}`;
+    const URL = `http://api.mediastack.com/v1/news?access_key=cdd4ecce3022c69e56a07e8ca938695a&languages=en&sort=published_desc&keywords=${query}&categories=sports&offset=${offsetPage}&limit=28`;
 
 
 
@@ -39,20 +40,21 @@ const SportNews = () => {
 
     const next = () => {
         var count = offsetPage
-        count += 25
+        count += 28
         setOffsetPage(count)
         setisLoaded(false)
         handleFetch();
     }
     const previous = () => {
         var count = offsetPage
-        count -= 25
+        count -= 28
         if (count >= 0) {
             setOffsetPage(count)
             setisLoaded(false)
             handleFetch()
         } else {
             count = 0
+            alert("this is first page")
         }
     }
 
@@ -71,14 +73,16 @@ const SportNews = () => {
             {isLoaded ? (
                 hits.map((item) => {
                     return (
-                        <SingleArticle
-                            url={item.url}
-                            title={item.title}
-                            author={item.author}
-                            image={item.image}
-                            descritpion={item.description}
-                            published={item.published_at}
-                        />
+                        <Col xs="12" sm="9" md="6" lg="3">
+                            <SingleArticle
+                                url={item.url}
+                                title={item.title}
+                                author={item.author}
+                                image={item.image}
+                                descritpion={item.description}
+                                published={item.published_at}
+                            />
+                        </Col>
                     );
                 })
 

@@ -3,10 +3,14 @@
   flex-wrap: wrap;
   justify-content: space-between;
   background: #9fd3c7;
+ a{
+  text-decoration: none;
+  color: black;
+ }
 }
 .searchBar {
   width: 355px;
-  height: 24px;
+  height: 30px;
   border-radius: 10px 0 0 10px;
   margin-top: 20px;
   border-right: none;
@@ -22,6 +26,7 @@
   border-left: none;
   background:white;
   cursor: pointer;
+  margin-top: 21px;
 }
 .pagination{
   margin: 20px;
