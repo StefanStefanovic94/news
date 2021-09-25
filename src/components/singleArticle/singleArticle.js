@@ -14,7 +14,7 @@ const SingleArticle = ({ author, title, image, descritpion, published, url, crea
     return (
 
         <div className="singleArticle">
-            <a href={url}>
+            <a href={url} target="_blank">
                 <div className={"wrapImg"}>
                     <img className="imageArticle" src={image ? image : `https://www.hambleden.org.uk/_UserFiles/Images/_News/27232-News.jpg`} />
                 </div>

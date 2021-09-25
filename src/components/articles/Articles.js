@@ -14,7 +14,7 @@ function Articles() {
     const [query, setQuery] = useState("");
     const [offsetPage, setOffsetPage] = useState(0);
 
-    const URL = `http://api.mediastack.com/v1/news?access_key=98dc895c193ccd95ea40c83349780be8&languages=en&sort=published_desc&offset=${currentPage}&keywords=${query}`;
+    const URL = `http://api.mediastack.com/v1/news?access_key=a8ef5a60d7c6e5e9390d3f0a1bce22df&languages=en&sort=published_desc&offset=${currentPage}&keywords=${query}`;
 
 
 
@@ -44,9 +44,8 @@ function Articles() {
 
     return (<div>
         <div>
-            <label>Search</label>
-            <input type="text" onChange={(event) => setQuery(event.target.value)} />
-            <button onClick={handleFetch}>Get Data</button>
+            <input className="searchBar" placeholder="search for news..." type="text" onChange={(event) => setQuery(event.target.value)} />
+            <button className="searchButton" onClick={handleFetch}>Search</button>
         </div>
         <div className="allArticles">
             {isLoaded ? (
@@ -82,7 +81,7 @@ function Articles() {
                 activeClassName={'active'}
             />
         ) : (
-            <div>Nothing to display</div>
+            <div></div>
         )}
 
     </div>

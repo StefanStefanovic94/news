@@ -5,9 +5,14 @@ import "./header.scss"
 const Header = () => {
     return (
         <div>
-            <h1>NEWS</h1>
-            <div>
-                <Link to="/sport">  <button>Sport</button></Link>
+            <Link to="/"><h1>NEWS</h1></Link>
+            <div className="categories">
+                <div>
+                    <Link to="/sport">  <button>Sport</button></Link>
+                </div>
+                <div>
+                    <Link to="/technologies"> <button>Technologies</button></Link>
+                </div>
             </div>
         </div>
     )

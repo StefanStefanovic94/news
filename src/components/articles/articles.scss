@@ -4,3 +4,22 @@
   justify-content: space-between;
   background: #9fd3c7;
 }
+.searchBar {
+  width: 355px;
+  height: 24px;
+  border-radius: 10px 0 0 10px;
+  margin-top: 20px;
+  border-right: none;
+  position: relative;
+  border: 2px solid black;
+  border-right: none;
+}
+.searchButton {
+  height: 30px;
+  border-radius: 0 10px 10px 0;
+  bottom: 0px;
+  border: solid 2px;
+  border-left: none;
+  background:white;
+  cursor: pointer;
+}

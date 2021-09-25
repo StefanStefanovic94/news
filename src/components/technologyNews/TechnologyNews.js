@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import SingleArticle from "../singleArticle/SingleArticle";
 
-const SportNews = () => {
+const TechnologyNews = () => {
     const [hits, setHits] = useState([]);
     const [pageCount, setPageCount] = useState(1);
     const [isLoaded, setisLoaded] = useState(false);
@@ -10,7 +10,7 @@ const SportNews = () => {
     const [query, setQuery] = useState("");
     const [offsetPage, setOffsetPage] = useState(0);
 
-    const URL = `http://api.mediastack.com/v1/news?access_key=a8ef5a60d7c6e5e9390d3f0a1bce22df&languages=en&sort=published_desc&offset=${currentPage}&keywords=${query}&categories=sports`;
+    const URL = `http://api.mediastack.com/v1/news?access_key=a8ef5a60d7c6e5e9390d3f0a1bce22df&languages=en&sort=published_desc&offset=${currentPage}&keywords=${query}&categories=technology`;
 
 
 
@@ -85,4 +85,4 @@ const SportNews = () => {
     );
 }
 
-export default SportNews
+export default TechnologyNews
