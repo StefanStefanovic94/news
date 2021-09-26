@@ -9,8 +9,11 @@ function Articles() {
     const [isLoaded, setisLoaded] = useState(false);
     const [query, setQuery] = useState("");
     const [offsetPage, setOffsetPage] = useState(0);
+    const [sort, setSort] = useState("published_desc")
 
-    const URL = `http://api.mediastack.com/v1/news?access_key=cdd4ecce3022c69e56a07e8ca938695a&languages=en&sort=published_desc&offset=${offsetPage}&keywords=${query}&countries=gb,us&limit=28`;
+    const key = "d12132e2a65404cb82d53bf214b766f7"
+
+    const URL = `http://api.mediastack.com/v1/news?access_key=${key}&languages=en&offset=${offsetPage}&keywords=${query}&countries=gb,us&limit=28&sort=${sort}`;
 
     const handleFetch = () => {
         fetch(URL)
@@ -47,6 +50,22 @@ function Articles() {
             alert("this is first page")
         }
     }
+    const sortedAsc = () => {
+        if (sort === "published_desc") {
+            setSort("published_asc")
+            setisLoaded(false)
+            handleFetch()
+        }
+    }
+
+    const sortedDesc = () => {
+        if (sort === "published_asc") {
+            setSort("published_desc")
+            setisLoaded(false)
+            handleFetch()
+        }
+    }
+
 
     return (
         <div>
@@ -57,6 +76,10 @@ function Articles() {
             <div className="pagination">
                 <button onClick={previous}>Previous</button>
                 <button onClick={next}>Next</button>
+            </div>
+            <div className="sort">
+                <button className="desc" onClick={sortedDesc}>^</button>
+                <button className="asc" onClick={sortedAsc}>^</button>
             </div>
             <div className="allArticles">
                 {

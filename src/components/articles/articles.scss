@@ -3,10 +3,10 @@
   flex-wrap: wrap;
   justify-content: space-between;
   background: #9fd3c7;
- a{
-  text-decoration: none;
-  color: black;
- }
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 .searchBar {
   width: 355px;
@@ -19,23 +19,33 @@
 }
 .searchButton {
   height: 30px;
-  border-radius:10px;
+  border-radius: 10px;
   bottom: 0px;
   border: solid 2px black;
   border-left: none;
-  background:white;
+  background: white;
   cursor: pointer;
   margin-top: 21px;
   margin-left: 2px;
 }
-.pagination{
+.pagination {
   margin: 20px;
   display: flex;
   justify-content: space-between;
-  button{
+  button {
     min-width: 70px;
     background: #385170;
     color: white;
     padding: 5px;
+  }
+}
+.desc {
+  transform: rotate(180deg);
+  margin-right: 3px;
+}
+.sort {
+  button {
+    background: #385170;
+    color: white;
   }
 }
