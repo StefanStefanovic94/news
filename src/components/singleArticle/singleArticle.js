@@ -1,9 +1,8 @@
 import React from "react"
 import "./singleArticle.scss"
 import PropTypes from 'prop-types';
-import { Col, Container, Row } from "react-bootstrap";
 
-const SingleArticle = ({ author, title, image, descritpion, published, url, created }) => {
+const SingleArticle = ({ author, title, image, published, url,key }) => {
 
     const date = new Date(published);
     const day = date.getDate()
@@ -15,10 +14,10 @@ const SingleArticle = ({ author, title, image, descritpion, published, url, crea
 
     return (
 
-        <div className="singleArticle">
+        <div className="singleArticle" key={key}>
             <a href={url} target="_blank">
                 <div className={"wrapImg"}>
-                    <img className="imageArticle" src={image ? image : `https://www.hambleden.org.uk/_UserFiles/Images/_News/27232-News.jpg`} />
+                    <img className="imageArticle" src={image ? image : `https://www.hambleden.org.uk/_UserFiles/Images/_News/27232-News.jpg`} alt="image"/>
                 </div>
                 <div>
                     <h4 className="title">{title}</h4>
@@ -43,8 +42,12 @@ const SingleArticle = ({ author, title, image, descritpion, published, url, crea
     )
 }
 
-// SingleArticle.defaultProps = {
-//     author: author ? null : "author"
-// };
+SingleArticle.propTypes = {
+    author: PropTypes.string,
+    title: PropTypes.string,
+    image: PropTypes.string,
+    published: PropTypes.string,
+    url: PropTypes.string
 
+}
 export default SingleArticle
