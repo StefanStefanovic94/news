@@ -11,7 +11,6 @@ const SingleArticle = ({ author, title, image, descritpion, published, url, crea
     const minutes = date.getMinutes()
     const hours = date.getHours()
 
-    // const min = minutes < 10 ? 0 + minutes : minutes
 
 
     return (
@@ -34,7 +33,7 @@ const SingleArticle = ({ author, title, image, descritpion, published, url, crea
                     <div className={"date"}>
                         <p>{day}.</p>
                         <p>{month} </p>
-                        <span><p>{hours}: </p><p>{minutes}</p></span>
+                        {/* <span><p>{hours}: </p><p>{minutes}</p></span> */}
 
                     </div>
                 </div>

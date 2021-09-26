@@ -1,40 +1,29 @@
 import SingleArticle from "../singleArticle/SingleArticle";
 import "./articles.scss"
 import React, { useEffect, useState } from 'react';
-import { Col, Row, Container } from "react-bootstrap"
+import { Col } from "react-bootstrap"
 
 function Articles() {
 
-    const [hits, setHits] = useState([]);
-    const [pageCount, setPageCount] = useState(1);
+    const [dataNews, setdataNews] = useState([]);
     const [isLoaded, setisLoaded] = useState(false);
-    const [currentPage, setcurrentPage] = useState(0);
     const [query, setQuery] = useState("");
     const [offsetPage, setOffsetPage] = useState(0);
 
     const URL = `http://api.mediastack.com/v1/news?access_key=cdd4ecce3022c69e56a07e8ca938695a&languages=en&sort=published_desc&offset=${offsetPage}&keywords=${query}&countries=gb,us&limit=28`;
-
-
 
     const handleFetch = () => {
         fetch(URL)
             .then(response => response.json())
             .then(body => {
                 console.log(body);
-                setHits([...body.data]);
-                setPageCount(body.pagination.total);
+                setdataNews([...body.data]);
                 setisLoaded(true);
 
             })
             .catch(error => console.error('Error', error));
     };
 
-
-    const handlePageChange = (selectedObject) => {
-        setcurrentPage(selectedObject.selected);
-        handleFetch();
-
-    };
     useEffect(() => {
         handleFetch()
     }, [isLoaded]);
@@ -58,9 +47,8 @@ function Articles() {
             alert("this is first page")
         }
     }
- 
-    return (
 
+    return (
         <div>
             <div>
                 <input className="searchBar" placeholder="search for news..." type="text" onChange={(event) => setQuery(event.target.value)} />
@@ -72,7 +60,7 @@ function Articles() {
             </div>
             <div className="allArticles">
                 {
-                    hits.map((item) => {
+                    dataNews.map((item) => {
                         return (
                             <Col xs="12" sm="9" md="6" lg="3">
                                 <SingleArticle
@@ -89,10 +77,6 @@ function Articles() {
 
                 }
             </div>
-
-
-
-
         </div>
     );
 }

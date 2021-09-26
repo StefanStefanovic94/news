@@ -11,22 +11,22 @@
 .searchBar {
   width: 355px;
   height: 30px;
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px;
   margin-top: 20px;
   border-right: none;
   position: relative;
   border: 2px solid black;
-  border-right: none;
 }
 .searchButton {
   height: 30px;
-  border-radius: 0 10px 10px 0;
+  border-radius:10px;
   bottom: 0px;
-  border: solid 2px;
+  border: solid 2px black;
   border-left: none;
   background:white;
   cursor: pointer;
   margin-top: 21px;
+  margin-left: 2px;
 }
 .pagination{
   margin: 20px;
