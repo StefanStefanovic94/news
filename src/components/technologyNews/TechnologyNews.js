@@ -9,7 +9,7 @@ const TechnologyNews = () => {
     const [offsetPage, setOffsetPage] = useState(0);
     const [sort, setSort] = useState("published_desc")
 
-    const key = "d12132e2a65404cb82d53bf214b766f7"
+    const key = "5a5dfe9eab67819477f667e8b7679797"
 
     const URL = `http://api.mediastack.com/v1/news?access_key=${key}&languages=en&offset=${offsetPage}&keywords=${query}&categories=technology&limit=28&sort=${sort}`;
 
