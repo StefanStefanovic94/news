@@ -1,4 +1,4 @@
-import SingleArticle from "../singleArticle/SingleArticle";
+import SingleArticle from "../singleArticle/singleArticle";
 import "./articles.scss"
 import React, { useEffect, useState } from 'react';
 import { Col } from "react-bootstrap"

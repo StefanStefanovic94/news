@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col } from "react-bootstrap";
-import SingleArticle from "../singleArticle/SingleArticle";
+import SingleArticle from "../singleArticle/singleArticle";
 
 const SportNews = () => {
     const [dataNews, setdataNews] = useState([]);
